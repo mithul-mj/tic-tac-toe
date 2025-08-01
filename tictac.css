@@ -1,0 +1,41 @@
+body{
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Permanent Marker" , cursive;
+
+}
+.mainContainer{
+  display: grid;
+  place-items: center;
+}
+.container{
+  
+  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(3,100px);
+  grid-template-rows: repeat(3,100px);
+  
+}
+.cell{
+  border: 2px solid black;
+  font-size: 50px;
+  display: grid;
+  place-items: center;
+  user-select: none;
+}
+.result{
+  height: 50px;
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  font-size: 30px;
+}
+.restart{
+  padding: 10px 20px; 
+  font-family: "Permanent Marker" , cursive;
+  background-color: lightgray;
+  border: none;
+  border-radius: 15px;
+}
