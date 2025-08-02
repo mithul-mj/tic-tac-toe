@@ -77,7 +77,7 @@ function newGame() {
   winLine.style.left = "0";
   winLine.style.top = "0";
   winLine.style.transform = "none"; // Reset line position
-  display: none;
+  winLine.style.display = "none";
   current_player = "X";
   initializeGame();
 }
