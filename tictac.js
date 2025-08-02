@@ -2,15 +2,19 @@ const cell = document.querySelectorAll(".cell");
 const result = document.querySelector(".result");
 const restart = document.querySelector(".restart");
 let options = ["", "", "", "", "", "", "", "", ""];
-let winCondition = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6],
+const winLine = document.querySelector(".line");
+
+const winCondition = [
+  [0, 1, 2, ["0px", "50px", "rotate(0deg)"]], // Row 1
+  [3, 4, 5, ["0px", "150px", "rotate(0deg)"]], // Row 2
+  [6, 7, 8, ["0px", "250px", "rotate(0deg)"]], // Row 3
+
+  [0, 3, 6, ["-100px", "150px", "rotate(90deg)"]], // Col 1
+  [1, 4, 7, ["0px", "150px", "rotate(90deg)"]], // Col 2
+  [2, 5, 8, ["100px", "150px", "rotate(90deg)"]], // Col 3
+
+  [0, 4, 8, ["0px", "150px", "rotate(45deg)"]], // Diagonal \
+  [2, 4, 6, ["0px", "150px", "rotate(-45deg)"]], // Diagonal /
 ];
 
 let running = false;
@@ -47,9 +51,10 @@ function checkWinner() {
       options[x[0]] != ""
     ) {
       roundWon = true;
-      cell[x[0]].style.backgroundColor = "green";
-      cell[x[1]].style.backgroundColor = "green";
-      cell[x[2]].style.backgroundColor = "green";
+      winLine.style.display = "block";
+      winLine.style.transform = x[3][2];
+      winLine.style.left = x[3][0];
+      winLine.style.top = x[3][1];
     }
   });
   if (roundWon) {
@@ -65,13 +70,14 @@ function checkWinner() {
 }
 function newGame() {
   options = ["", "", "", "", "", "", "", "", ""];
-  console.log("haii");
   cell.forEach((x) => {
     x.textContent = "";
+    x.style.backgroundColor = "white";
   });
-  cell.forEach((x) => {
-    x.style.backgroundColor = "red";
-  });
+  winLine.style.left = "0";
+  winLine.style.top = "0";
+  winLine.style.transform = "none"; // Reset line position
+  display: none;
   current_player = "X";
   initializeGame();
 }
