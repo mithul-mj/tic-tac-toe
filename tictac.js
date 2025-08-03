@@ -42,10 +42,10 @@ function updateCell(cell, index) {
 function changePlayer() {
   if (current_player == "X") {
     current_player = "O";
-    circle.style.transform = "translateX(0px)";
+    circle.style.transform = "translateX(35px)";
   } else {
     current_player = "X";
-    circle.style.transform = "translateX(35px)";
+    circle.style.transform = "translateX(0px)";
   }
   result.textContent = `${current_player}'s turn`;
 }

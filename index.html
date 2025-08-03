@@ -8,6 +8,9 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
       rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   </head>
   <body>
     <div class="mainWrapper">
@@ -26,14 +29,18 @@
           <div class="line"></div>
         </div>
 
-        <div class="toggle">
-          <div class="cross">X</div>
-          <div class="circle">⭘</div>
-          <div class="greenCircle"></div>
+        <!-- Grouped controls -->
+        <div class="controls">
+          <div class="toggle">
+            <div class="cross">X</div>
+            <div class="circle">O</div>
+            <div class="greenCircle"></div>
+          </div>
+          <div class="result">Player X's turn</div>
+          <button class="restart">
+            <i class="fa-solid fa-rotate-right"></i> Restart
+          </button>
         </div>
-
-        <div class="result">Player X's turn</div>
-        <button class="restart">Restart Game</button>
       </div>
     </div>
     <script src="tictac.js"></script>

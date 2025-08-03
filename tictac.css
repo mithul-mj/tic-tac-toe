@@ -1,10 +1,10 @@
-/* General Reset and Layout */
 body {
   margin: 0;
   height: 100vh;
   display: grid;
   place-items: center;
   font-family: "Segoe UI", sans-serif;
+  background-color: #f9f9f9;
 }
 
 .mainWrapper {
@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* Vertical spacing */
+  gap: 25px;
 }
 
 /* Game Grid */
@@ -36,11 +36,9 @@ body {
   place-items: center;
   user-select: none;
   color: #3498db;
-  background-color: #f9f9f9;
-
 }
 
-/* Grid borders for lines */
+/* Grid borders */
 .cell:nth-child(-n+6) {
   border-bottom: 2px solid #dcdcdc;
 }
@@ -50,44 +48,12 @@ body {
   border-right: 2px solid #dcdcdc;
 }
 
-/* Result and Button */
-.result {
-  width: 200px;
-  text-align: center;
-  padding: 10px;
-  font-size: 24px;
-  background-color: #ffffff;
-  color: #3498db;
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.restart {
-  padding: 10px 20px;
-  font-family: "Segoe UI", sans-serif;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s;
-}
-
-.restart:hover {
-  background-color: #2980b9;
-}
-
-/* Win Line */
-.line {
-  display: none;
-  z-index: 10;
-  position: absolute;
-  height: 4px;
-  background-color: #e74c3c;
-  width: 300px;
-  transform-origin: center;
-  transition: all 0.3s ease;
+/* Controls container */
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
 /* Toggle Switch */
@@ -106,6 +72,7 @@ body {
 
 .cross,
 .circle {
+  z-index: 10;
   color: #3498db;
   height: 24px;
   width: 24px;
@@ -126,6 +93,53 @@ body {
   transition: 0.3s;
 }
 
+/* Result Box */
+.result {
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  font-size: 22px;
+  background-color: #ffffff;
+  color: #3498db;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Restart Button */
+.restart {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.restart i {
+  font-size: 16px;
+}
+
+.restart:hover {
+  background-color: #2980b9;
+}
+
+/* Win Line */
+.line {
+  display: none;
+  z-index: 10;
+  position: absolute;
+  height: 4px;
+  background-color: rgba(41, 128, 185, 0.5);
+  width: 300px;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
 /* Side Title */
 .sideTitle {
   font-family: 'Bangers', cursive;
@@ -140,18 +154,12 @@ body {
 
 /* Float Animation */
 @keyframes float {
-  0% {
-    transform: rotate(-5deg) translateY(0px);
-  }
-  50% {
-    transform: rotate(-5deg) translateY(-5px);
-  }
-  100% {
-    transform: rotate(-5deg) translateY(0px);
-  }
+  0% { transform: rotate(-5deg) translateY(0px); }
+  50% { transform: rotate(-5deg) translateY(-5px); }
+  100% { transform: rotate(-5deg) translateY(0px); }
 }
 
-/* Responsive for Mobile */
+/* Mobile Responsive */
 @media screen and (max-width: 768px) {
   .mainWrapper {
     flex-direction: column;
