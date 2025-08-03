@@ -1,6 +1,7 @@
 const cell = document.querySelectorAll(".cell");
 const result = document.querySelector(".result");
 const restart = document.querySelector(".restart");
+const circle = document.querySelector(".greenCircle");
 let options = ["", "", "", "", "", "", "", "", ""];
 const winLine = document.querySelector(".line");
 
@@ -39,7 +40,13 @@ function updateCell(cell, index) {
   checkWinner();
 }
 function changePlayer() {
-  current_player = current_player == "X" ? "O" : "X";
+  if (current_player == "X") {
+    current_player = "O";
+    circle.style.transform = "translateX(0px)";
+  } else {
+    current_player = "X";
+    circle.style.transform = "translateX(35px)";
+  }
   result.textContent = `${current_player}'s turn`;
 }
 function checkWinner() {

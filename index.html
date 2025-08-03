@@ -3,26 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="tictac.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet" />
   </head>
   <body>
-    <div class="mainContainer">
-      <h2>Tic - Tac - Toe</h2>
-      <div class="container">
-        <div class="cell" cellno="0"></div>
-        <div class="cell" cellno="1"></div>
-        <div class="cell" cellno="2"></div>
-        <div class="cell" cellno="3"></div>
-        <div class="cell" cellno="4"></div>
-        <div class="cell" cellno="5"></div>
-        <div class="cell" cellno="6"></div>
-        <div class="cell" cellno="7"></div>
-        <div class="cell" cellno="8"></div>
-        <div class="line"></div>
+    <div class="mainWrapper">
+      <div class="sideTitle">Tic - Tac - Toe</div>
+      <div class="mainContainer">
+        <div class="container">
+          <div class="cell" cellno="0"></div>
+          <div class="cell" cellno="1"></div>
+          <div class="cell" cellno="2"></div>
+          <div class="cell" cellno="3"></div>
+          <div class="cell" cellno="4"></div>
+          <div class="cell" cellno="5"></div>
+          <div class="cell" cellno="6"></div>
+          <div class="cell" cellno="7"></div>
+          <div class="cell" cellno="8"></div>
+          <div class="line"></div>
+        </div>
+
+        <div class="toggle">
+          <div class="cross">X</div>
+          <div class="circle">⭘</div>
+          <div class="greenCircle"></div>
+        </div>
+
+        <div class="result">Player X's turn</div>
+        <button class="restart">Restart Game</button>
       </div>
-      <div class="result"></div>
-      <button class="restart">Restart Game</button>
     </div>
     <script src="tictac.js"></script>
   </body>

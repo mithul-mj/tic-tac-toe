@@ -1,50 +1,164 @@
-body{
+/* General Reset and Layout */
+body {
   margin: 0;
   height: 100vh;
   display: grid;
   place-items: center;
-  font-family: "Permanent Marker" , cursive;
+  font-family: "Segoe UI", sans-serif;
+}
 
+.mainWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
 }
-.mainContainer{
-  display: grid;
-  place-items: center;
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Vertical spacing */
 }
-.container{
+
+/* Game Grid */
+.container {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3,100px);
-  grid-template-rows: repeat(3,100px);
-  
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
 }
-.cell{
-  border: 2px solid black;
+
+.cell {
   font-size: 50px;
   display: grid;
   place-items: center;
   user-select: none;
+  color: #3498db;
+  background-color: #f9f9f9;
+
 }
-.result{
-  height: 50px;
+
+/* Grid borders for lines */
+.cell:nth-child(-n+6) {
+  border-bottom: 2px solid #dcdcdc;
+}
+
+.cell:nth-child(3n+1),
+.cell:nth-child(3n+2) {
+  border-right: 2px solid #dcdcdc;
+}
+
+/* Result and Button */
+.result {
   width: 200px;
   text-align: center;
   padding: 10px;
-  font-size: 30px;
+  font-size: 24px;
+  background-color: #ffffff;
+  color: #3498db;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-.restart{
-  padding: 10px 20px; 
-  font-family: "Permanent Marker" , cursive;
-  background-color: lightgray;
+
+.restart {
+  padding: 10px 20px;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #3498db;
+  color: white;
   border: none;
   border-radius: 15px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
 }
+
+.restart:hover {
+  background-color: #2980b9;
+}
+
+/* Win Line */
 .line {
   display: none;
   z-index: 10;
   position: absolute;
   height: 4px;
-  background-color: red;
-  width: 300px; /* enough to cover 3 cells */
+  background-color: #e74c3c;
+  width: 300px;
   transform-origin: center;
   transition: all 0.3s ease;
+}
+
+/* Toggle Switch */
+.toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60px;
+  height: 30px;
+  background-color: #ecf0f1;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.cross,
+.circle {
+  color: #3498db;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.greenCircle {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  background-color: #4c616f;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* Side Title */
+.sideTitle {
+  font-family: 'Bangers', cursive;
+  font-size: 48px;
+  color: #3498db;
+  text-shadow: 2px 2px #ecf0f1, 4px 4px #d35400;
+  transform: rotate(-5deg);
+  transition: transform 0.3s ease-in-out;
+  animation: float 2s ease-in-out infinite;
+  user-select: none;
+}
+
+/* Float Animation */
+@keyframes float {
+  0% {
+    transform: rotate(-5deg) translateY(0px);
+  }
+  50% {
+    transform: rotate(-5deg) translateY(-5px);
+  }
+  100% {
+    transform: rotate(-5deg) translateY(0px);
+  }
+}
+
+/* Responsive for Mobile */
+@media screen and (max-width: 768px) {
+  .mainWrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .sideTitle {
+    display: none;
+  }
 }
