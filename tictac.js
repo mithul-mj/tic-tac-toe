@@ -79,7 +79,6 @@ function newGame() {
   options = ["", "", "", "", "", "", "", "", ""];
   cell.forEach((x) => {
     x.textContent = "";
-    x.style.backgroundColor = "white";
   });
   winLine.style.left = "0";
   winLine.style.top = "0";
