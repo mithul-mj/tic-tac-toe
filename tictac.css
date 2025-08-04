@@ -134,7 +134,7 @@ body {
   z-index: 10;
   position: absolute;
   height: 4px;
-  background-color: rgba(41, 128, 185, 0.5);
+  background-color: rgb(211, 84, 0, 0.5);
   width: 300px;
   transform-origin: center;
   transition: all 0.3s ease;

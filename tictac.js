@@ -2,6 +2,10 @@ const cell = document.querySelectorAll(".cell");
 const result = document.querySelector(".result");
 const restart = document.querySelector(".restart");
 const circle = document.querySelector(".greenCircle");
+const o_audio = new Audio("o_audio.mp3");
+const x_audio = new Audio("x_audio.mp3");
+const draw_audio = new Audio("draw_audio.mp3");
+const winning_audio = new Audio("winning.mp3");
 let options = ["", "", "", "", "", "", "", "", ""];
 const winLine = document.querySelector(".line");
 
@@ -41,9 +45,11 @@ function updateCell(cell, index) {
 }
 function changePlayer() {
   if (current_player == "X") {
+    x_audio.play();
     current_player = "O";
     circle.style.transform = "translateX(35px)";
   } else {
+    o_audio.play();
     current_player = "X";
     circle.style.transform = "translateX(0px)";
   }
@@ -65,11 +71,12 @@ function checkWinner() {
     }
   });
   if (roundWon) {
+    winning_audio.play();
     result.textContent = `${current_player} won`;
-
     running = false;
     roundWon = false;
   } else if (!options.includes("")) {
+    draw_audio.play();
     result.textContent = `Draw`;
   } else {
     changePlayer();
